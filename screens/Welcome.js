@@ -15,6 +15,9 @@ import {
   ImageBackground,
 } from "react-native";
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 export default function Welcome() {
   return (
     <ImageBackground
@@ -24,8 +27,9 @@ export default function Welcome() {
       <Image source={require("../assets/logo.png")} style={styles.logo}></Image>
 
       <View style={styles.buttons}>
-        <View style={styles.rectangle1}></View>
-        <View style={styles.rectangle2}></View>
+        <TouchableOpacity style={styles.button} onPress={console.log("hi")}>
+          <Text style={styles.text}>Get Started</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -33,7 +37,7 @@ export default function Welcome() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.9,
     backgroundColor: "white",
     alignItems: "center",
   },
@@ -46,17 +50,24 @@ const styles = StyleSheet.create({
   buttons: {
     flex: 1,
     justifyContent: "flex-end",
+    width: "100%",
+    alignItems: "center",
+    marginBottom: 40,
   },
 
-  rectangle1: {
-    backgroundColor: "dodgerblue",
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height * 0.07,
+  button: {
+    backgroundColor: "slateblue",
+    borderRadius: 25,
+    width: Dimensions.get("window").width * 0.85,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
-  rectangle2: {
-    backgroundColor: "gray",
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height * 0.07,
+  text: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });

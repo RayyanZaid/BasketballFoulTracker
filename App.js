@@ -14,13 +14,17 @@ import {
   Dimensions,
 } from "react-native";
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Welcome from "./screens/Welcome";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Welcome />
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <Welcome />
+      </View>
+    </NavigationContainer>
   );
 }
 
